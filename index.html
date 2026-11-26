@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Speak Up – מאמן דיבור באנגלית</title>
+<meta name="theme-color" content="#1f5fd1">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Speak Up">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f6fb; --card:#ffffff; --text:#14213d; --muted:#61708b; --line:#e2e7f0;
+  --brand:#1f5fd1; --brand2:#3f8cff; --brand-soft:#e7efff;
+  --ok:#14a06b; --ok-soft:#e3f6ee; --warn:#d98a00; --warn-soft:#fff4dc; --bad:#d83a3a; --bad-soft:#fde9e9;
+  --me:#1f5fd1; --me-text:#fff; --ai:#ffffff;
+  --shadow:0 2px 10px rgba(20,33,61,.07);
+  --r:16px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1420; --card:#171f2e; --text:#e8edf7; --muted:#97a3ba; --line:#263247;
+    --brand:#4d8dff; --brand2:#6aa3ff; --brand-soft:#1c2a45;
+    --ok:#3ccf92; --ok-soft:#14302a; --warn:#f0b13e; --warn-soft:#3a2e14; --bad:#ff6b6b; --bad-soft:#3b1d22;
+    --me:#2f6fe0; --me-text:#fff; --ai:#1d2738;
+    --shadow:0 2px 10px rgba(0,0,0,.3);
+  }
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:Heebo,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.5}
+body{min-height:100vh;min-height:100dvh;overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
+input,select,textarea{font:inherit;color:var(--text)}
+.en{direction:ltr;text-align:left;unicode-bidi:isolate}
+.wrap{max-width:640px;margin:0 auto;padding:0 16px}
+header.top{position:sticky;top:0;z-index:20;background:var(--bg);padding:calc(10px + env(safe-area-inset-top)) 0 8px;border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:10px}
+header.top h1{font-size:20px;margin:0;font-weight:800;flex:1;display:flex;align-items:center;gap:8px;min-width:0}
+header.top h1 span.t{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.logo{width:30px;height:30px;border-radius:9px;flex:none}
+.iconbtn{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:20px;flex:none}
+.iconbtn:active{background:var(--brand-soft)}
+main{padding:14px 0 calc(96px + env(safe-area-inset-bottom))}
+.card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:16px;margin-bottom:12px;border:1px solid var(--line)}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+h2{font-size:18px;margin:4px 0 10px}
+h3{font-size:16px;margin:0 0 6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:12px;font-weight:700;background:var(--brand);color:#fff;min-height:46px}
+.btn:active{transform:scale(.98)}
+.btn.sec{background:var(--brand-soft);color:var(--brand)}
+.btn.ghost{background:transparent;color:var(--brand);border:1px solid var(--line)}
+.btn.danger{background:var(--bad-soft);color:var(--bad)}
+.btn.block{width:100%}
+.btn[disabled]{opacity:.5;pointer-events:none}
+.field{display:block;margin:10px 0}
+.field label{display:block;font-size:14px;color:var(--muted);margin-bottom:4px}
+.input{width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--bg);font-size:16px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 6px;text-align:center;box-shadow:var(--shadow)}
+.stat b{display:block;font-size:22px;color:var(--brand);font-weight:800;line-height:1.2}
+.stat span{font-size:12px;color:var(--muted)}
+.scen{display:flex;align-items:center;gap:12px;width:100%;text-align:right;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin-bottom:10px;box-shadow:var(--shadow)}
+.scen:active{transform:scale(.99)}
+.scen .em{font-size:26px;width:46px;height:46px;border-radius:12px;background:var(--brand-soft);display:grid;place-items:center;flex:none}
+.scen .tx{flex:1;min-width:0}
+.scen .tx b{display:block;font-size:16px}
+.scen .tx small{color:var(--muted);font-size:13px;display:block}
+.scen .go{color:var(--muted);font-size:18px}
+nav.bottom{position:fixed;bottom:0;left:0;right:0;z-index:30;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
+nav.bottom .wrap{display:flex}
+nav.bottom button{flex:1;padding:8px 0 10px;display:flex;flex-direction:column;align-items:center;font-size:12px;color:var(--muted);gap:2px}
+nav.bottom button i{font-style:normal;font-size:21px}
+nav.bottom button.on{color:var(--brand);font-weight:700}
+/* chat */
+.chat{display:flex;flex-direction:column;gap:10px;padding-bottom:10px}
+.bub{max-width:88%;padding:11px 14px;border-radius:18px;box-shadow:var(--shadow);word-wrap:break-word}
+.bub.ai{align-self:flex-end;background:var(--ai);border:1px solid var(--line);border-bottom-left-radius:6px}
+.bub.me{align-self:flex-start;background:var(--me);color:var(--me-text);border-bottom-right-radius:6px}
+/* in RTL, flex-start is right: put "me" on the right, AI on the left */
+.bub .he{font-size:14px;color:var(--muted);border-top:1px dashed var(--line);margin-top:8px;padding-top:6px;direction:rtl;text-align:right}
+.bub .tools{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;direction:rtl}
+.chip{display:inline-flex;align-items:center;gap:4px;font-size:13px;padding:5px 10px;border-radius:999px;background:var(--brand-soft);color:var(--brand);font-weight:600}
+.bub.me .chip{background:rgba(255,255,255,.2);color:#fff}
+.fb{align-self:flex-start;max-width:94%;width:94%;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;font-size:15px}
+.fb .row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.score{font-weight:800;border-radius:10px;padding:2px 9px;font-size:14px}
+.s-hi{background:var(--ok-soft);color:var(--ok)}
+.s-mid{background:var(--warn-soft);color:var(--warn)}
+.s-lo{background:var(--bad-soft);color:var(--bad)}
+.better{background:var(--ok-soft);border-radius:10px;padding:8px 10px;margin:6px 0;font-weight:500}
+.better .lbl{font-size:12px;color:var(--ok);font-weight:700;display:block;direction:rtl;text-align:right}
+.tips{margin:4px 0 0;padding-inline-start:18px}
+.tips li{margin:2px 0}
+.phr{display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--line)}
+.phr:first-child{border-top:none}
+.phr .p{flex:1;min-width:0}
+.phr .p .en{font-weight:600}
+.phr .p .h{font-size:14px;color:var(--muted)}
+.miss{background:var(--bad-soft);color:var(--bad);border-radius:4px;padding:0 2px;text-decoration:underline}
+.hit{color:var(--ok)}
+.match{margin-top:6px;font-size:14px}
+.typing{align-self:flex-end;color:var(--muted);font-size:14px;padding:4px 10px}
+.dots span{animation:blink 1.2s infinite;font-size:20px}
+.dots span:nth-child(2){animation-delay:.2s}.dots span:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,100%{opacity:.2}50%{opacity:1}}
+/* dock */
+.dock{position:fixed;bottom:0;left:0;right:0;z-index:30;background:var(--card);border-top:1px solid var(--line);padding:10px 0 calc(12px + env(safe-area-inset-bottom))}
+.dock .wrap{display:flex;align-items:center;gap:10px}
+.live{flex:1;min-height:46px;max-height:120px;overflow:auto;border-radius:12px;background:var(--bg);border:1px solid var(--line);padding:10px 12px;font-size:15px;color:var(--muted)}
+.live.on{color:var(--text);border-color:var(--bad)}
+.mic{width:64px;height:64px;border-radius:50%;background:linear-gradient(145deg,var(--brand2),var(--brand));color:#fff;font-size:28px;display:grid;place-items:center;flex:none;box-shadow:0 4px 14px rgba(31,95,209,.35)}
+.mic.rec{background:var(--bad);animation:pulse 1.4s infinite}
+.mic[disabled]{opacity:.45}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(216,58,58,.5)}70%{box-shadow:0 0 0 16px rgba(216,58,58,0)}100%{box-shadow:0 0 0 0 rgba(216,58,58,0)}}
+.typebox{flex:1;display:flex;gap:8px}
+.typebox textarea{flex:1;resize:none;height:46px;padding:11px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);font-size:16px;direction:ltr;text-align:left}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(110px + env(safe-area-inset-bottom));background:#14213d;color:#fff;padding:10px 16px;border-radius:12px;z-index:100;font-size:14px;max-width:90%;box-shadow:0 6px 20px rgba(0,0,0,.25);text-align:center}
+.bigscore{font-size:48px;font-weight:800;text-align:center;line-height:1}
+.ol{padding-inline-start:20px;margin:6px 0}
+.ol li{margin:4px 0}
+.hist{display:block;width:100%;text-align:right}
+.steps{padding-inline-start:20px}
+.steps li{margin:6px 0}
+a{color:var(--brand)}
+.row2{display:flex;gap:8px;flex-wrap:wrap}
+.row2 .btn{flex:1}
+.note{background:var(--warn-soft);color:var(--text);border-radius:12px;padding:10px 12px;font-size:14px;margin:10px 0}
+.center{text-align:center}
+.hidden{display:none!important}
+.tag{font-size:12px;color:var(--muted)}
+.empty{text-align:center;color:var(--muted);padding:30px 10px}
+/* mode sheet */
+.sheet-bg{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:60;display:flex;align-items:flex-end;justify-content:center}
+.sheet{background:var(--card);width:100%;max-width:640px;border-radius:20px 20px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom));box-shadow:0 -6px 30px rgba(0,0,0,.25)}
+.sheet h2{margin-top:0}
+.opt{display:flex;gap:12px;align-items:center;width:100%;text-align:right;border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:10px;background:var(--bg)}
+.opt .em{font-size:28px}
+.opt b{display:block}
+.opt small{color:var(--muted)}
+.opt.rec{border-color:var(--brand);background:var(--brand-soft)}
+.badge{font-size:11px;background:var(--brand);color:#fff;border-radius:6px;padding:1px 6px;margin-inline-start:6px;vertical-align:middle}
+/* live call */
+.call{position:fixed;inset:0;background:#0b0f17;color:#fff;display:flex;flex-direction:column;z-index:50;padding-top:env(safe-area-inset-top)}
+.call-top{display:flex;align-items:center;gap:10px;padding:10px 14px}
+.call-top .ttl{flex:1;font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.call-top .tm{font-variant-numeric:tabular-nums;color:#9fb0cc;font-size:14px}
+.dot-live{width:9px;height:9px;border-radius:50%;background:#e5484d;display:inline-block;margin-inline-end:6px;animation:blink 1.4s infinite}
+.stage{position:relative;margin:0 12px;border-radius:18px;overflow:hidden;aspect-ratio:4/3;max-height:50vh;background:#1b2333;transition:box-shadow .2s;flex:none}
+.stage.speaking{box-shadow:0 0 0 3px #3ccf92}
+.stage svg.av{width:100%;height:100%;display:block}
+.nametag{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.55);padding:3px 10px;border-radius:8px;font-size:13px}
+.status{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(11,15,23,.72);font-size:16px;text-align:center;padding:20px}
+.selfview{position:absolute;bottom:10px;left:10px;width:26%;aspect-ratio:3/4;border-radius:12px;overflow:hidden;background:#000;border:2px solid rgba(255,255,255,.25)}
+.selfview video{width:100%;height:100%;object-fit:cover;transform:scaleX(-1);display:block}
+.selfview .ini{position:absolute;inset:0;display:grid;place-items:center;font-size:24px;font-weight:800;color:#9fb0cc;background:#202a3c}
+.selfview.talk{border-color:#3ccf92}
+.caption{position:absolute;bottom:10px;right:10px;left:calc(26% + 20px);background:rgba(0,0,0,.66);border-radius:10px;padding:6px 10px;font-size:14px;line-height:1.35;direction:ltr;text-align:left;max-height:40%;overflow:hidden}
+.caption b{color:#8fb8ff;font-weight:700}
+.caption.me b{color:#3ccf92}
+.coach{flex:1;overflow:auto;padding:12px 12px 0;-webkit-overflow-scrolling:touch}
+.coach h4{margin:0 0 8px;font-size:14px;color:#9fb0cc;font-weight:600}
+.ccard{background:#171f2e;border:1px solid #263247;border-radius:12px;padding:10px 12px;margin-bottom:8px;font-size:14px}
+.ccard .said{color:#97a3ba;direction:ltr;text-align:left;margin-bottom:6px}
+.ccard .better{background:#14302a;color:#e8edf7}
+.ccard .better .lbl{color:#3ccf92}
+.ccard .tips{color:#e8edf7}
+.controls{display:flex;justify-content:center;align-items:center;gap:16px;padding:12px 0 calc(14px + env(safe-area-inset-bottom));background:#0b0f17}
+.cbtn{width:56px;height:56px;border-radius:50%;background:#263247;font-size:22px;display:grid;place-items:center;color:#fff}
+.cbtn.off{background:#f1f3f7;color:#111}
+.cbtn.end{background:#e5484d;width:70px;border-radius:28px}
+.cbtn small{display:none}
+.eyes{transform-origin:200px 128px;animation:blinkeye 4.5s infinite}
+@keyframes blinkeye{0%,46%,50%,100%{transform:scaleY(1)}48%{transform:scaleY(.1)}}
+.headbob{transform-origin:200px 200px;animation:bob 6s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:rotate(0deg) translateY(0)}50%{transform:rotate(1.2deg) translateY(1px)}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+'use strict';
+/* ========= Scenarios ========= */
+const SCENARIOS = [
+  {id:'results', em:'📡', he:'הצגת תוצאות בדיקה', sub:'מציג למנהל תוצאות מדידת קרינה / RF',
+   en:'Eyal presents antenna radiation pattern / RF test results to his manager in a short meeting. Ask about the results, anomalies, confidence in the data and next steps.',
+   role:'Daniel, his engineering manager (friendly but asks sharp questions)'},
+  {id:'standup', em:'☕', he:'עדכון בסטנד-אפ', sub:'מה עשיתי אתמול, מה היום, מה חוסם',
+   en:'A daily stand-up meeting of an international hardware team on a video call. Ask Eyal for his update and follow up on blockers.',
+   role:'Sarah, the team lead running the stand-up'},
+  {id:'supplier', em:'📦', he:'שיחה עם ספק', sub:'רכיבים מתעכבים, צריך לוחות זמנים',
+   en:'A call with a component supplier whose RF parts / PCBs are delayed. Eyal needs to understand the delay, push for a new date and discuss alternatives.',
+   role:'Mike, an account manager at the supplier (polite, a bit evasive)'},
+  {id:'failure', em:'🛠️', he:'הסבר תקלה בייצור', sub:'מסביר ללקוח מה קרה ומה עושים',
+   en:'A meeting with a customer about a production failure in an RF board (for example frequency drift or low RF output). Eyal explains the root cause, the fix and how they will prevent it.',
+   role:'Laura, a quality engineer at the customer (concerned, wants clear answers)'},
+  {id:'review', em:'🧩', he:'Design Review', sub:'מגן על החלטות תכנון מול עמיתים',
+   en:'A technical design review of a new RF board / test setup. Eyal explains design choices and answers challenging questions.',
+   role:'Tom, a senior engineer from the overseas R&D site (curious and critical)'},
+  {id:'present', em:'🎤', he:'מצגת קצרה', sub:'מציג נושא טכני מול קהל',
+   en:'Eyal gives a short presentation to the team about a technical topic of his choice from his work. Ask him to start, then ask audience questions one at a time.',
+   role:'the meeting host and audience members'},
+  {id:'help', em:'❓', he:'לבקש עזרה / הבהרה', sub:'דרישות לא ברורות, לשאול שאלות',
+   en:'Eyal received unclear requirements for a new test and needs to ask a colleague questions to clarify them. Answer him and let him lead with questions.',
+   role:'Anna, a product manager abroad who wrote the requirements'},
+  {id:'smalltalk', em:'🤝', he:'Small talk לפני פגישה', sub:'כמה דקות של שיחה קלה עם עמיתים',
+   en:'Small talk in the first minutes before an online meeting with colleagues from abroad: weekend, weather, travel, how things are going.',
+   role:'James, a friendly colleague from the UK office'},
+];
+const CUSTOM = {id:'custom', em:'✏️', he:'מצב משלך', sub:'תאר כל מצב עבודה ונתרגל אותו'};
+const LEVELS = {mid:'intermediate (understands well, hesitant when speaking)', good:'upper-intermediate', adv:'advanced (wants fine-tuning and natural phrasing)'};
+
+/* ========= Storage ========= */
+const KEY = 'speakup.v1';
+function blank(){return {apiKey:'', model:'', rate:0.95, voiceURI:'', level:'mid', sessions:[], phrases:[], days:[]};}
+let S;
+try{ S = Object.assign(blank(), JSON.parse(localStorage.getItem(KEY)||'{}')); }catch(e){ S = blank(); }
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){ toast('לא הצלחתי לשמור בטלפון (אין מקום?)'); } }
+
+/* ========= Helpers ========= */
+const $ = s => document.querySelector(s);
+const esc = s => String(s==null?'':s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid = () => Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+const today = () => { const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); };
+function toast(msg, ms=3200){ const t=document.createElement('div'); t.className='toast'; t.textContent=msg; document.body.appendChild(t); setTimeout(()=>t.remove(), ms); }
+function scoreCls(n){ return n>=8?'s-hi':(n>=5?'s-mid':'s-lo'); }
+function streak(){
+  const set = new Set(S.days); let n=0; const d=new Date();
+  if(!set.has(today())) d.setDate(d.getDate()-1);
+  for(;;){ const k=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); if(set.has(k)){n++; d.setDate(d.getDate()-1);} else break; }
+  return n;
+}
+function wordsSpoken(){ let n=0; for(const s of S.sessions) for(const t of (s.turns||[])) if(t.who==='me') n += (t.text||'').split(/\s+/).filter(Boolean).length; return n; }
+function fmtDate(iso){ try{ return new Date(iso).toLocaleDateString('he-IL',{day:'numeric',month:'numeric',year:'2-digit'})+' '+new Date(iso).toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'}); }catch(e){ return iso; } }
+function scenarioOf(sess){ return SCENARIOS.find(x=>x.id===sess.scenarioId) || Object.assign({}, CUSTOM, {he: sess.title||CUSTOM.he}); }
+
+/* ========= Text to speech ========= */
+let voices = [];
+function loadVoices(){ try{ voices = speechSynthesis.getVoices().filter(v => /^en[-_]/i.test(v.lang)); }catch(e){ voices=[]; } }
+if('speechSynthesis' in window){ loadVoices(); speechSynthesis.onvoiceschanged = loadVoices; }
+function pickVoice(){
+  if(!voices.length) loadVoices();
+  if(S.voiceURI){ const v = voices.find(v=>v.voiceURI===S.voiceURI); if(v) return v; }
+  return voices.find(v=>/en-US/i.test(v.lang) && /(Samantha|Google US|Aria|Jenny|Natural)/i.test(v.name)) || voices.find(v=>/en-US/i.test(v.lang)) || voices[0] || null;
+}
+function speak(text){
+  if(!('speechSynthesis' in window) || !text) return;
+  try{
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    const v = pickVoice(); if(v){ u.voice = v; u.lang = v.lang; } else u.lang = 'en-US';
+    u.rate = Number(S.rate)||0.95;
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+function stopSpeak(){ try{ speechSynthesis.cancel(); }catch(e){} }
+
+/* ========= Speech recognition ========= */
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+const R = {rec:null, active:false, committed:'', session:'', onUpdate:null, done:null, error:''};
+function listenText(){ return (R.committed+' '+R.session).replace(/\s+/g,' ').trim(); }
+function startListening(onUpdate){
+  if(!SR) return false;
+  stopSpeak();
+  R.active = true; R.committed=''; R.session=''; R.error=''; R.onUpdate = onUpdate;
+  const rec = new SR(); R.rec = rec;
+  rec.lang = 'en-US'; rec.continuous = true; rec.interimResults = true; rec.maxAlternatives = 1;
+  rec.onresult = e => {
+    let s=''; for(let i=0;i<e.results.length;i++) s += e.results[i][0].transcript + ' ';
+    R.session = s; if(R.onUpdate) R.onUpdate(listenText());
+  };
+  rec.onerror = e => {
+    if(e.error==='not-allowed' || e.error==='service-not-allowed'){ R.error='perm'; R.active=false; }
+    else if(e.error==='network'){ R.error='net'; R.active=false; }
+    else if(e.error==='audio-capture'){ R.error='mic'; R.active=false; }
+  };
+  rec.onend = () => {
+    R.committed = listenText(); R.session='';
+    if(R.active){ try{ rec.start(); return; }catch(err){ R.active=false; } }
+    if(R.done){ const d=R.done; R.done=null; d(); }
+    else if(R.onUpdate && R.error) R.onUpdate(listenText(), true);
+  };
+  try{ rec.start(); }catch(e){ R.active=false; return false; }
+  return true;
+}
+function stopListening(){
+  return new Promise(res => {
+    if(!R.rec){ res(''); return; }
+    R.active = false;
+    let finished = false;
+    const fin = () => { if(finished) return; finished=true; res(listenText()); };
+    R.done = fin;
+    try{ R.rec.stop(); }catch(e){ fin(); }
+    setTimeout(fin, 1800);
+  });
+}
+function micErrorText(){
+  if(R.error==='perm') return 'אין הרשאה למיקרופון. אשר גישה למיקרופון בהגדרות הדפדפן ונסה שוב.';
+  if(R.error==='net') return 'זיהוי הדיבור צריך אינטרנט. בדוק חיבור ונסה שוב.';
+  if(R.error==='mic') return 'לא נמצא מיקרופון.';
+  return '';
+}
+
+/* ========= Gemini ========= */
+const API = 'https://generativelanguage.googleapis.com/v1beta/';
+class AIError extends Error{ constructor(he, code){ super(he); this.code=code; } }
+async function apiFetch(url, opts){
+  let r;
+  try{ r = await fetch(url, opts); }catch(e){ throw new AIError('אין חיבור לאינטרנט (או שהחיבור נחסם). נסה שוב.', 'net'); }
+  let j=null; try{ j = await r.json(); }catch(e){}
+  if(!r.ok){
+    const msg = (j && j.error && (j.error.message||'')) || '';
+    const st = (j && j.error && j.error.status) || '';
+    const detail = ' ['+r.status+(st?(' '+st):'')+(msg?(': '+msg.slice(0,90)):'')+']';
+    if((r.status===400 || r.status===401) && /api key|auth|token|credential/i.test(msg)) throw new AIError('Google לא קיבלה את המפתח. מחק את מה שבשדה, העתק שוב את המפתח והדבק.'+detail, 'key');
+    if(r.status===403) throw new AIError('המפתח נחסם או שאין לו הרשאה ל-Gemini API. צור מפתח חדש ב-AI Studio.'+detail, 'key');
+    if(r.status===429) throw new AIError('הגעת למכסה החינמית לרגע. חכה דקה ונסה שוב.', 'quota');
+    if(r.status===404) throw new AIError('המודל לא נמצא', 'model');
+    if(r.status>=500) throw new AIError('השרת של Google עמוס כרגע. נסה שוב בעוד רגע.', 'server');
+    throw new AIError('שגיאה מ-Gemini: '+(st||r.status)+(msg?(' – '+msg.slice(0,140)):''), 'other');
+  }
+  return j;
+}
+function verOf(name){ const m = name.match(/gemini-(\d+(?:\.\d+)?)/); return m?parseFloat(m[1]):0; }
+async function detectModel(key){
+  const j = await apiFetch(API+'models?pageSize=1000&key='+encodeURIComponent(key));
+  const list = (j.models||[]).filter(m => (m.supportedGenerationMethods||[]).includes('generateContent')).map(m => m.name.replace(/^models\//,''));
+  const ok = list.filter(n => /flash/.test(n) && !/(image|tts|audio|live|embed|lite|learnlm|thinking|computer|robotics|native)/.test(n));
+  const rank = n => verOf(n)*100 - (/preview|exp/.test(n)?50:0) - (/-\d{3}$|-\d{2}-\d{2}/.test(n)?1:0);
+  ok.sort((a,b)=>rank(b)-rank(a));
+  if(ok.length) return ok[0];
+  if(list.includes('gemini-flash-latest')) return 'gemini-flash-latest';
+  if(list.length) return list[0];
+  throw new AIError('לא נמצא מודל מתאים במפתח הזה.', 'model');
+}
+function parseJSON(txt){
+  if(!txt) throw new AIError('תשובה ריקה מ-Gemini. נסה שוב.', 'empty');
+  let t = txt.trim().replace(/^```(?:json)?\s*/i,'').replace(/```\s*$/,'');
+  try{ return JSON.parse(t); }catch(e){}
+  const a=t.indexOf('{'), b=t.lastIndexOf('}');
+  if(a>=0 && b>a){ try{ return JSON.parse(t.slice(a,b+1)); }catch(e){} }
+  throw new AIError('לא הבנתי את התשובה מ-Gemini. נסה שוב.', 'parse');
+}
+async function gemini(system, contents, temp=0.8, retried=false){
+  if(!S.model){ S.model = await detectModel(S.apiKey); save(); }
+  const body = {systemInstruction:{parts:[{text:system}]}, contents, generationConfig:{temperature:temp, responseMimeType:'application/json', maxOutputTokens:2048}};
+  try{
+    const j = await apiFetch(API+'models/'+encodeURIComponent(S.model)+':generateContent?key='+encodeURIComponent(S.apiKey), {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)});
+    const c = j.candidates && j.candidates[0];
+    const txt = c && c.content && (c.content.parts||[]).map(p=>p.text||'').join('');
+    return parseJSON(txt);
+  }catch(e){
+    if(!retried && e.code==='model'){ S.model=''; save(); return gemini(system, contents, temp, true); }
+    if(!retried && (e.code==='parse' || e.code==='empty' || e.code==='server')) return gemini(system, contents, temp, true);
+    throw e;
+  }
+}
+function scenarioPrompt(sess){
+  const sc = scenarioOf(sess);
+  const scen = sess.scenarioId==='custom' ? ('Custom scenario described by Eyal (may be in Hebrew – understand it, but speak English): '+sess.customText+'. You play the most natural counterpart for this situation.') : (sc.en+' You play: '+sc.role+'.');
+  return `You are an English speaking coach running a role-play for Eyal, a native Hebrew speaker from Israel who works as an RF/hardware engineer (antenna radiation pattern testing, RF board design and debugging, radar/wireless test systems, production characterization and statistics) at an alarm/security hardware company.
+His English level: ${LEVELS[S.level]||LEVELS.mid}. Goal: practise SPEAKING English at work with confidence.
+
+SCENARIO: ${scen}
+
+RULES:
+- Stay in character. Replies must sound like natural spoken English: 1-3 short sentences, max about 45 words. Usually end with a question or prompt that makes him talk more. Do not lecture.
+- Adapt vocabulary to his level. Use common professional expressions he can reuse.
+- His messages come from speech recognition: ignore punctuation, capital letters and obvious recognition glitches. Judge grammar, word choice, phrasing, natural flow and clarity.
+- If he says something in Hebrew or gets stuck, gently help in character and give him the English words in "corrected".
+- Output ONLY a JSON object, no markdown:
+{"feedback": null | {"score": 1-10, "corrected": "a natural improved version of HIS last message, same meaning and similar length; if already perfect, repeat it", "tips_he": ["0-3 very short tips in Hebrew about his specific mistakes"], "good_he": "one short Hebrew sentence about what he did well"},
+ "reply": "your in-character spoken reply in English",
+ "reply_he": "Hebrew translation of reply",
+ "phrases": [{"en": "useful expression from this moment", "he": "Hebrew meaning"}]}
+- "feedback" is null only when the user message is [START] (then open the scene naturally). "phrases": 0-2 items.
+- Score honestly: 9-10 natural and correct, 7-8 small issues, 5-6 understandable with clear errors, below 5 hard to understand.`;
+}
+function contentsOf(sess, extraUser){
+  const c = [{role:'user', parts:[{text:'[START]'}]}];
+  for(const t of sess.turns){
+    if(t.who==='ai') c.push({role:'model', parts:[{text:JSON.stringify({reply:t.text})}]});
+    else c.push({role:'user', parts:[{text:t.text}]});
+  }
+  if(extraUser) c.push({role:'user', parts:[{text:extraUser}]});
+  // merge consecutive same roles (safety)
+  const out=[]; for(const x of c){ const l=out[out.length-1]; if(l && l.role===x.role) l.parts[0].text += '\n'+x.parts[0].text; else out.push(x); }
+  return out;
+}
+
+/* ========= App state ========= */
+let view = 'home';
+let cur = null;       // current session
+let busy = false;     // waiting for AI
+let typing = false;   // keyboard mode
+let listenTarget = null; // null | 'main' | {turnIdx}
+
+function setDay(){ const d=today(); if(!S.days.includes(d)){ S.days.push(d); if(S.days.length>400) S.days=S.days.slice(-400); } }
+
+/* ========= Rendering ========= */
+function render(){
+  const app = $('#app');
+  if(!S.apiKey){ app.innerHTML = setupView(); bindSetup(); return; }
+  if(view==='call' && cur){ if(!$('#callroot')){ app.innerHTML = callView(); bindCommon(); } return; }
+  if(view==='chat' && cur){ app.innerHTML = chatView(); bindChat(); scrollBottom(); return; }
+  if(view==='summary' && cur){ app.innerHTML = summaryView(); bindCommon(); return; }
+  if(view==='settings'){ app.innerHTML = settingsView(); bindSettings(); return; }
+  if(view==='phrases'){ app.innerHTML = frame(phrasesView(), 'phrases'); bindCommon(); return; }
+  if(view==='history'){ app.innerHTML = frame(historyView(), 'history'); bindCommon(); return; }
+  view='home'; app.innerHTML = frame(homeView(), 'home'); bindCommon();
+}
+function header(title, back){
+  return `<header class="top"><div class="wrap">
+    ${back?`<button class="iconbtn" data-act="${back}" aria-label="חזרה">→</button>`:''}
+    <h1>${back?'':'<img class="logo" src="icon-192.png" alt="">'}<span class="t">${title}</span></h1>
+    ${back?'':'<button class="iconbtn" data-act="settings" aria-label="הגדרות">⚙️</button>'}
+  </div></header>`;
+}
+function frame(inner, tab){
+  const titles = {home:'Speak Up', phrases:'הביטויים שלי', history:'היסטוריה'};
+  return header(titles[tab]) + `<main><div class="wrap">${inner}</div></main>
+  <nav class="bottom"><div class="wrap">
+    <button data-act="tab" data-tab="home" class="${tab==='home'?'on':''}"><i>🎙️</i>תרגול</button>
+    <button data-act="tab" data-tab="phrases" class="${tab==='phrases'?'on':''}"><i>⭐</i>ביטויים</button>
+    <button data-act="tab" data-tab="history" class="${tab==='history'?'on':''}"><i>🕘</i>היסטוריה</button>
+  </div></nav>`;
+}
+function homeView(){
+  const st = streak();
+  return `<div class="stats">
+      <div class="stat"><b>${st}</b><span>ימים ברצף 🔥</span></div>
+      <div class="stat"><b>${S.sessions.filter(s=>s.turns&&s.turns.some(t=>t.who==='me')).length}</b><span>שיחות</span></div>
+      <div class="stat"><b>${wordsSpoken()}</b><span>מילים שאמרת</span></div>
+    </div>
+    <h2>בחר מצב לתרגל</h2>
+    ${SCENARIOS.map(s=>`<button class="scen" data-act="start" data-id="${s.id}"><span class="em">${s.em}</span><span class="tx"><b>${esc(s.he)}</b><small>${esc(s.sub)}</small></span><span class="go">‹</span></button>`).join('')}
+    <button class="scen" data-act="custom"><span class="em">${CUSTOM.em}</span><span class="tx"><b>${CUSTOM.he}</b><small>${CUSTOM.sub}</small></span><span class="go">‹</span></button>
+    <div class="card small muted">💡 טיפ: 10 דקות ביום עדיפות על שעה פעם בשבוע. דבר בקול, גם אם זה לא מושלם.</div>`;
+}
+function phrasesView(){
+  if(!S.phrases.length) return `<div class="empty">עוד אין ביטויים שמורים.<br>בזמן שיחה לחץ ⭐ על ביטוי כדי לשמור אותו כאן.</div>`;
+  return `<div class="card">${S.phrases.slice().reverse().map(p=>`<div class="phr">
+      <div class="p"><div class="en">${esc(p.en)}</div><div class="h">${esc(p.he)}</div></div>
+      <button class="iconbtn" data-act="say" data-text="${esc(p.en)}" aria-label="השמע">🔊</button>
+      <button class="iconbtn" data-act="delphrase" data-en="${esc(p.en)}" aria-label="מחק">🗑️</button>
+    </div>`).join('')}</div>`;
+}
+function historyView(){
+  const list = S.sessions.filter(s=>s.turns && s.turns.some(t=>t.who==='me')).slice().reverse();
+  if(!list.length) return `<div class="empty">עוד לא היו שיחות. בחר מצב במסך התרגול כדי להתחיל.</div>`;
+  return list.map(s=>{ const sc=scenarioOf(s); const n=s.turns.filter(t=>t.who==='me').length;
+    return `<button class="scen hist" data-act="open" data-id="${s.id}"><span class="em">${sc.em}</span><span class="tx"><b>${s.mode==='live'?'📹 ':''}${esc(sc.he)}</b><small>${fmtDate(s.date)} · ${n} תשובות${s.summary?` · ציון ${esc(s.summary.score)}/10`:''}</small></span><span class="go">‹</span></button>`; }).join('');
+}
+function fbHTML(t, i){
+  const f = t.fb; if(!f) return '';
+  const sc = Math.max(1, Math.min(10, Number(f.score)||0));
+  return `<div class="fb">
+    <div class="row"><span class="score ${scoreCls(sc)}">${sc}/10</span><span class="small">${esc(f.good_he||'')}</span></div>
+    ${f.corrected && norm(f.corrected)!==norm(t.text) ? `<div class="better"><span class="lbl">ככה זה נשמע טבעי יותר:</span><div class="en">${esc(f.corrected)}</div></div>` : `<div class="better"><span class="lbl">מצוין – אין מה לתקן 👌</span></div>`}
+    ${(f.tips_he&&f.tips_he.length)?`<ul class="tips">${f.tips_he.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
+    ${f.corrected?`<div class="row2" style="margin-top:8px">
+      <button class="chip" data-act="say" data-text="${esc(f.corrected)}">🔊 שמע</button>
+      <button class="chip" data-act="repeat" data-i="${i}">${listenTarget&&listenTarget.i===i?'⏹ סיים':'🎤 נסה להגיד את זה'}</button>
+    </div>`:''}
+    ${t.rep?repHTML(t.rep):''}
+  </div>`;
+}
+function repHTML(rep){
+  const cls = rep.pct>=85?'s-hi':(rep.pct>=60?'s-mid':'s-lo');
+  return `<div class="match"><span class="score ${cls}">${rep.pct}%</span> ${rep.pct>=85?'יפה מאוד!':(rep.pct>=60?'קרוב, נסה שוב':'נסה שוב לאט')}
+    <div class="en" style="margin-top:4px">${rep.words.map(w=>`<span class="${w.ok?'hit':'miss'}">${esc(w.w)}</span>`).join(' ')}</div>
+    <div class="tag">המילים המסומנות באדום לא זוהו – נסה לבטא אותן ברור יותר.</div></div>`;
+}
+function phrasesHTML(list){
+  if(!list || !list.length) return '';
+  return list.map(p=>{ const saved = S.phrases.some(x=>x.en.toLowerCase()===String(p.en).toLowerCase());
+    return `<div class="tools"><button class="chip" data-act="savephrase" data-en="${esc(p.en)}" data-he="${esc(p.he)}">${saved?'✅':'⭐'} <span class="en">${esc(p.en)}</span></button></div>`; }).join('');
+}
+function chatView(){
+  const sc = scenarioOf(cur);
+  let h = header(esc(sc.em+' '+sc.he), 'leave');
+  h += `<main><div class="wrap"><div class="chat" id="chat">`;
+  h += `<div class="card small muted" style="margin-bottom:0">אתה בשיחה עם ${cur.scenarioId==='custom'?'הדמות במצב שתיארת':esc(sc.role.split(',')[0])}. לחץ על 🎤 ודבר באנגלית, לחץ שוב כשסיימת. אחרי כל תשובה תקבל משוב.</div>`;
+  cur.turns.forEach((t,i)=>{
+    if(t.who==='ai'){
+      h += `<div class="bub ai"><div class="en">${esc(t.text)}</div>
+        ${t.showHe?`<div class="he">${esc(t.he||'')}</div>`:''}
+        <div class="tools"><button class="chip" data-act="say" data-text="${esc(t.text)}">🔊</button><button class="chip" data-act="tr" data-i="${i}">${t.showHe?'הסתר תרגום':'תרגום'}</button></div>
+        ${phrasesHTML(t.phrases)}</div>`;
+    } else {
+      h += `<div class="bub me"><div class="en">${esc(t.text)}</div></div>`;
+      h += fbHTML(t, i);
+    }
+  });
+  if(busy) h += `<div class="typing"><span class="dots"><span>•</span><span>•</span><span>•</span></span></div>`;
+  if(cur.err) h += `<div class="card" style="border-color:var(--bad)"><div class="small">${esc(cur.err)}</div><button class="btn sec" style="margin-top:8px" data-act="retry">נסה שוב</button></div>`;
+  const nMe = cur.turns.filter(t=>t.who==='me').length;
+  if(nMe>=1 && !busy) h += `<button class="btn ghost block" data-act="finish">🏁 סיים וקבל סיכום</button>`;
+  h += `</div></div></main>`;
+  const mainRec = listenTarget==='main';
+  if(typing || !SR){
+    h += `<div class="dock"><div class="wrap"><div class="typebox">
+      <textarea id="typed" placeholder="Type in English…" ${busy?'disabled':''}></textarea>
+      <button class="btn" data-act="send" ${busy?'disabled':''}>שלח</button></div>
+      ${SR?'<button class="iconbtn" data-act="kbd" aria-label="מיקרופון">🎤</button>':''}
+    </div></div>`;
+  } else {
+    h += `<div class="dock"><div class="wrap">
+      <button class="iconbtn" data-act="kbd" aria-label="מקלדת">⌨️</button>
+      <div class="live en ${mainRec?'on':''}" id="live">${mainRec?esc(listenText()||'Listening…'):(busy?'…':'<span dir="rtl" style="display:block;text-align:right">לחץ על המיקרופון ודבר</span>')}</div>
+      <button class="mic ${mainRec?'rec':''}" data-act="mic" ${busy||(listenTarget&&!mainRec)?'disabled':''} aria-label="הקלטה">${mainRec?'⏹':'🎤'}</button>
+    </div></div>`;
+  }
+  return h;
+}
+function summaryView(){
+  const s = cur.summary; const sc = scenarioOf(cur);
+  let h = header('סיכום: '+esc(sc.he), 'home');
+  h += `<main><div class="wrap">`;
+  if(!s){ h += `<div class="card center">${busy?'מכין סיכום… <span class="dots"><span>•</span><span>•</span><span>•</span></span>':esc(cur.err||'')}${(!busy&&cur.err)?'<div style="margin-top:10px"><button class="btn sec" data-act="resum">נסה שוב</button></div>':''}</div>`; }
+  else {
+    const n = Math.max(1,Math.min(10,Number(s.score)||0));
+    h += `<div class="card center"><div class="bigscore"><span class="score ${scoreCls(n)}" style="font-size:40px;padding:4px 16px">${n}/10</span></div><p>${esc(s.summary_he||'')}</p></div>`;
+    if(s.strengths_he&&s.strengths_he.length) h += `<div class="card"><h3>💪 מה עבד טוב</h3><ul class="ol">${s.strengths_he.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`;
+    if(s.improve_he&&s.improve_he.length) h += `<div class="card"><h3>🎯 על מה לעבוד</h3><ul class="ol">${s.improve_he.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`;
+    if(s.phrases&&s.phrases.length) h += `<div class="card"><h3>⭐ ביטויים ששמרתי לך</h3>${s.phrases.map(p=>`<div class="phr"><div class="p"><div class="en">${esc(p.en)}</div><div class="h">${esc(p.he)}</div></div><button class="iconbtn" data-act="say" data-text="${esc(p.en)}">🔊</button></div>`).join('')}</div>`;
+    if(s.next_he) h += `<div class="card"><h3>➡️ בפעם הבאה</h3><div>${esc(s.next_he)}</div></div>`;
+  }
+  h += `<div class="row2"><button class="btn sec" data-act="open" data-id="${cur.id}">צפה בשיחה</button><button class="btn" data-act="again">עוד סבב</button></div>`;
+  h += `<div style="height:10px"></div><button class="btn ghost block" data-act="home">למסך הראשי</button>`;
+  h += `</div></main>`;
+  return h;
+}
+function setupView(){
+  return `<header class="top"><div class="wrap"><h1><img class="logo" src="icon-192.png" alt=""><span class="t">Speak Up</span></h1></div></header>
+  <main style="padding-bottom:30px"><div class="wrap">
+    <div class="card"><h2>ברוך הבא 👋</h2>
+      <p>כאן מתרגלים <b>דיבור באנגלית לעבודה</b>: אתה מדבר, דמות עונה לך בקול, ואחרי כל משפט מקבל משוב ותיקון.</p>
+      <p class="muted small">כדי שזה יעבוד צריך מפתח חינמי של Gemini (פעם אחת בלבד):</p>
+      <ol class="steps small">
+        <li>היכנס ל-<a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a> עם חשבון הגוגל שלך.</li>
+        <li>לחץ <b>Create API key</b> (אם שואל על פרויקט – בחר כל אחד או צור חדש).</li>
+        <li>לחץ על סמל ההעתקה ליד המפתח, וחזור לכאן.</li>
+        <li>הדבק בשדה למטה ולחץ "שמור ובדוק".</li>
+      </ol>
+      <div class="field"><label for="key">מפתח Gemini</label><input id="key" class="input en" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="AQ.… או AIza…"></div>
+      <button class="btn sec block" data-act="pastekey" style="margin-bottom:8px">📋 הדבק מהלוח ושמור</button>
+      <button class="btn block" data-act="savekey" id="savekey">שמור ובדוק</button>
+      <div class="note">🔒 המפתח נשמר רק בטלפון הזה. בגרסה החינמית Google רשאית להשתמש בשיחות לשיפור המוצרים שלה – אל תדבר על פרטים סודיים מהעבודה.</div>
+    </div>
+  </div></main>`;
+}
+function settingsView(){
+  loadVoices();
+  return header('הגדרות', 'home') + `<main style="padding-bottom:30px"><div class="wrap">
+    <div class="card"><h3>הרמה שלי</h3>
+      <select id="level" class="input">
+        <option value="mid" ${S.level==='mid'?'selected':''}>מבין טוב, נתקע כשמדבר</option>
+        <option value="good" ${S.level==='good'?'selected':''}>מדבר סביר, רוצה להשתפר</option>
+        <option value="adv" ${S.level==='adv'?'selected':''}>מתקדם – רוצה ניסוח טבעי</option>
+      </select></div>
+    <div class="card"><h3>קול ומהירות</h3>
+      <div class="field"><label>מהירות הדיבור: <b id="rateval">${Number(S.rate).toFixed(2)}</b></label><input id="rate" type="range" min="0.6" max="1.2" step="0.05" value="${S.rate}" style="width:100%"></div>
+      <div class="field"><label>קול</label><select id="voice" class="input">
+        <option value="">אוטומטי</option>
+        ${voices.map(v=>`<option value="${esc(v.voiceURI)}" ${S.voiceURI===v.voiceURI?'selected':''}>${esc(v.name)} (${esc(v.lang)})</option>`).join('')}
+      </select></div>
+      <button class="btn sec" data-act="testvoice">🔊 בדיקת קול</button>
+    </div>
+    <div class="card"><h3>מפתח Gemini</h3>
+      <div class="small muted en">${esc(S.apiKey.slice(0,6))}••••••${esc(S.apiKey.slice(-4))}</div>
+      <div class="small muted">מודל: <span class="en">${esc(S.model||'יזוהה אוטומטית')}</span></div>
+      <div class="small muted">מודל שיחה חיה: <span class="en">${esc(S.liveModel||'יזוהה בשיחה הראשונה')}</span></div>
+      <div class="row2" style="margin-top:8px"><button class="btn sec" data-act="redetect">זהה מודל מחדש</button><button class="btn ghost" data-act="changekey">החלף מפתח</button></div>
+    </div>
+    <div class="card"><h3>גיבוי</h3>
+      <p class="small muted">הכול נשמר רק בטלפון הזה. כדאי לגבות מדי פעם (בלי המפתח).</p>
+      <div class="row2"><button class="btn sec" data-act="export">⬇️ גיבוי לקובץ</button><button class="btn sec" data-act="import">⬆️ שחזור מקובץ</button></div>
+      <input type="file" id="file" accept="application/json,.json" class="hidden">
+    </div>
+    <div class="card"><h3>מחיקה</h3><button class="btn danger block" data-act="wipe">מחק את כל ההיסטוריה והביטויים</button></div>
+    <p class="small muted center">💡 אם המיקרופון לא עובד מאייקון במסך הבית, פתח את האתר בספארי. אפשר גם להשתמש במקלדת ⌨️ ובמיקרופון של המקלדת עצמה.</p>
+  </div></main>`;
+}
+
+/* ========= Binding ========= */
+function bindCommon(){ $('#app').onclick = onClick; }
+function bindSetup(){
+  bindCommon();
+  const k = $('#key'); k.addEventListener('keydown', e=>{ if(e.key==='Enter') saveKey(); });
+}
+function bindSettings(){
+  bindCommon();
+  $('#level').onchange = e => { S.level = e.target.value; save(); toast('נשמר'); };
+  $('#rate').oninput = e => { S.rate = Number(e.target.value); $('#rateval').textContent = S.rate.toFixed(2); };
+  $('#rate').onchange = () => save();
+  $('#voice').onchange = e => { S.voiceURI = e.target.value; save(); speak('Hi Eyal, this is my voice.'); };
+  $('#file').onchange = importFile;
+}
+function bindChat(){
+  bindCommon();
+  const ta = $('#typed');
+  if(ta){ ta.addEventListener('keydown', e=>{ if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); sendTyped(); } }); }
+}
+function scrollBottom(){ requestAnimationFrame(()=>window.scrollTo(0, document.body.scrollHeight)); }
+
+async function saveKey(){
+  const raw = ($('#key').value||'').replace(/[\u200B-\u200F\u202A-\u202E\u2066-\u2069\uFEFF]/g,'');
+  const mm = raw.match(/(AQ\.[A-Za-z0-9_\-]{20,}|AIza[A-Za-z0-9_\-]{20,})/);
+  const v = mm ? mm[1] : raw.trim().replace(/\s+/g,'');
+  if(v.length<20){ toast('נראה שהמפתח קצר מדי – העתק אותו במלואו'); return; }
+  $('#key').value = v;
+  const b = $('#savekey'); b.disabled = true; b.textContent = 'בודק…';
+  try{ const m = await detectModel(v); S.apiKey = v; S.model = m; save(); toast('מעולה! המפתח עובד ✅'); view='home'; render(); }
+  catch(e){ toast(e.message||'שגיאה', 4500); b.disabled=false; b.textContent='שמור ובדוק'; }
+}
+
+async function onClick(e){
+  const el = e.target.closest('[data-act]'); if(!el) return;
+  const a = el.dataset.act;
+  switch(a){
+    case 'tab': view = el.dataset.tab; render(); window.scrollTo(0,0); break;
+    case 'settings': view='settings'; render(); window.scrollTo(0,0); break;
+    case 'home': stopSpeak(); view='home'; cur=null; render(); window.scrollTo(0,0); break;
+    case 'savekey': saveKey(); break;
+    case 'pastekey': try{ const t = await navigator.clipboard.readText(); if(!t){ toast('הלוח ריק – העתק קודם את המפתח'); break; } $('#key').value = t; saveKey(); }catch(err){ toast('הדפדפן לא איפשר לקרוא מהלוח – לחץ בשדה, לחיצה ארוכה ← הדבק', 4500); $('#key').focus(); } break;
+    case 'start': showSheet(el.dataset.id); break;
+    case 'custom': {
+      const t = prompt('תאר בקצרה את המצב שאתה רוצה לתרגל (אפשר בעברית).\nלמשל: שיחת טלפון עם מהנדס בחו"ל על בעיית כיול');
+      if(t && t.trim()) showSheet('custom', t.trim());
+      break; }
+    case 'mode-live': { const p=pendingStart; closeSheet(); if(p) startLive(p.id, p.custom); break; }
+    case 'mode-step': { const p=pendingStart; closeSheet(); if(p) startSession(p.id, p.custom); break; }
+    case 'sheet-close': closeSheet(); break;
+    case 'mute': toggleMute(); break;
+    case 'cam': toggleCam(); break;
+    case 'cc': L.cc=!L.cc; el.classList.toggle('off', !L.cc); updateCaption(); break;
+    case 'endcall': endLive(); break;
+    case 'live-retry': { const s=cur; teardownLive(); S.sessions=S.sessions.filter(x=>x.id!==s.id||x.turns.some(t=>t.who==='me')); startLive(s.scenarioId, s.customText); break; }
+    case 'leave': await leaveChat(); break;
+    case 'say': speak(el.dataset.text); break;
+    case 'tr': { const t=cur.turns[+el.dataset.i]; t.showHe=!t.showHe; render(); break; }
+    case 'mic': toggleMic(); break;
+    case 'kbd': if(listenTarget){ await stopListening(); listenTarget=null; } typing=!typing; render(); if(typing){ const ta=$('#typed'); if(ta) ta.focus(); } break;
+    case 'send': sendTyped(); break;
+    case 'retry': cur.err=''; aiTurn(); break;
+    case 'finish': finish(); break;
+    case 'resum': cur.err=''; summarize(); break;
+    case 'repeat': toggleRepeat(+el.dataset.i); break;
+    case 'savephrase': savePhrase(el.dataset.en, el.dataset.he); render(); break;
+    case 'delphrase': S.phrases = S.phrases.filter(p=>p.en!==el.dataset.en); save(); render(); break;
+    case 'open': { const s=S.sessions.find(x=>x.id===el.dataset.id); if(s){ cur=s; view='chat'; typing=false; render(); } break; }
+    case 'again': { const s=cur; if(s.mode==='live') startLive(s.scenarioId, s.customText); else startSession(s.scenarioId, s.customText); break; }
+    case 'testvoice': speak('Hi Eyal! Let\'s practise your English for work. How was your day?'); break;
+    case 'redetect': try{ S.liveModel=''; S.model=''; S.model = await detectModel(S.apiKey); save(); toast('מודל: '+S.model); render(); }catch(err){ toast(err.message,4500); } break;
+    case 'changekey': if(confirm('להחליף את המפתח? תצטרך להדביק מפתח חדש.')){ S.apiKey=''; S.model=''; save(); render(); } break;
+    case 'export': exportData(); break;
+    case 'import': $('#file').click(); break;
+    case 'wipe': if(confirm('למחוק את כל השיחות והביטויים? אי אפשר לבטל.')){ S.sessions=[]; S.phrases=[]; S.days=[]; save(); toast('נמחק'); render(); } break;
+  }
+}
+
+/* ========= Session flow ========= */
+function startSession(id, customText){
+  stopSpeak();
+  cur = {id:uid(), scenarioId:id, customText:customText||'', title: id==='custom'?(customText||'').slice(0,40):'', date:new Date().toISOString(), turns:[], summary:null};
+  S.sessions.push(cur); if(S.sessions.length>200) S.sessions = S.sessions.slice(-200);
+  save(); view='chat'; typing=false; listenTarget=null; render();
+  aiTurn();
+}
+async function leaveChat(){
+  if(listenTarget){ await stopListening(); listenTarget=null; }
+  stopSpeak();
+  // drop empty sessions
+  if(cur && !cur.turns.some(t=>t.who==='me')){ S.sessions = S.sessions.filter(s=>s.id!==cur.id); save(); }
+  view = 'home'; cur=null; render(); window.scrollTo(0,0);
+}
+async function aiTurn(){
+  const sess = cur; busy = true; sess.err=''; render();
+  try{
+    const r = await gemini(scenarioPrompt(sess), contentsOf(sess));
+    // attach feedback to last user turn
+    const last = sess.turns[sess.turns.length-1];
+    if(last && last.who==='me' && r.feedback) last.fb = r.feedback;
+    const reply = String(r.reply||'').trim() || '…';
+    sess.turns.push({who:'ai', text:reply, he:r.reply_he||'', phrases:Array.isArray(r.phrases)?r.phrases.slice(0,2):[]});
+    save(); busy=false;
+    if(cur===sess && view==='chat'){ render(); speak(reply); }
+  }catch(e){
+    busy=false; sess.err = e.message || 'שגיאה'; if(cur===sess) render();
+  }
+}
+function sendUserText(text){
+  text = (text||'').trim();
+  if(!text){ toast('לא שמעתי כלום – נסה שוב, קרוב יותר למיקרופון'); render(); return; }
+  cur.turns.push({who:'me', text}); setDay(); save();
+  aiTurn();
+}
+function sendTyped(){ const ta=$('#typed'); if(!ta || busy) return; const v=ta.value; ta.value=''; sendUserText(v); }
+async function toggleMic(){
+  if(busy) return;
+  if(listenTarget==='main'){
+    const text = await stopListening(); listenTarget=null;
+    sendUserText(text);
+    return;
+  }
+  if(listenTarget) return;
+  listenTarget='main';
+  const ok = startListening((txt, ended) => {
+    const live = $('#live'); if(live) live.textContent = txt || 'Listening…';
+    if(ended && R.error){ listenTarget=null; toast(micErrorText(), 5000); render(); }
+  });
+  if(!ok){ listenTarget=null; typing=true; toast('זיהוי דיבור לא זמין כאן – אפשר להקליד, או להשתמש במיקרופון של המקלדת', 5000); }
+  render();
+}
+async function toggleRepeat(i){
+  const t = cur.turns[i]; if(!t || !t.fb || !t.fb.corrected) return;
+  if(listenTarget && listenTarget.i===i){
+    const said = await stopListening(); listenTarget=null;
+    if(!said){ toast('לא שמעתי כלום – נסה שוב'); render(); return; }
+    t.rep = compare(t.fb.corrected, said); save(); render(); return;
+  }
+  if(listenTarget || busy) return;
+  if(!SR){ toast('זיהוי דיבור לא זמין בדפדפן הזה'); return; }
+  listenTarget = {i};
+  const ok = startListening((txt, ended)=>{ if(ended && R.error){ listenTarget=null; toast(micErrorText(),5000); render(); } });
+  if(!ok){ listenTarget=null; toast('לא הצלחתי להפעיל את המיקרופון'); }
+  render();
+}
+function norm(s){ return String(s||'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9' ]+/g,' ').replace(/\s+/g,' ').trim(); }
+function compare(target, said){
+  const tw = String(target).split(/\s+/).filter(Boolean);
+  const tn = tw.map(w=>norm(w)); const sn = norm(said).split(' ').filter(Boolean);
+  const n=tn.length, m=sn.length; const dp = Array.from({length:n+1},()=>new Array(m+1).fill(0));
+  for(let a=n-1;a>=0;a--) for(let b=m-1;b>=0;b--) dp[a][b] = (tn[a] && tn[a]===sn[b]) ? dp[a+1][b+1]+1 : Math.max(dp[a+1][b], dp[a][b+1]);
+  const ok = new Array(n).fill(false); let a=0,b=0;
+  while(a<n && b<m){ if(tn[a] && tn[a]===sn[b]){ ok[a]=true; a++; b++; } else if(dp[a+1][b]>=dp[a][b+1]) a++; else b++; }
+  for(let k=0;k<n;k++) if(!tn[k]) ok[k]=true;
+  const real = tn.filter(Boolean).length || 1;
+  const pct = Math.round(100 * ok.filter((v,k)=>v && tn[k]).length / real);
+  return {pct, words: tw.map((w,k)=>({w, ok:ok[k]}))};
+}
+function savePhrase(en, he){
+  if(!en) return;
+  if(S.phrases.some(p=>p.en.toLowerCase()===en.toLowerCase())){ S.phrases = S.phrases.filter(p=>p.en.toLowerCase()!==en.toLowerCase()); toast('הוסר מהביטויים'); }
+  else { S.phrases.push({en, he:he||'', date:new Date().toISOString()}); toast('נשמר בביטויים ⭐'); }
+  save();
+}
+async function finish(){
+  if(listenTarget){ await stopListening(); listenTarget=null; }
+  stopSpeak(); view='summary'; summarize();
+}
+async function summarize(){
+  const sess = cur; busy = true; sess.err=''; render();
+  const transcript = sess.turns.map(t => (t.who==='ai'?'PARTNER: ':'EYAL: ')+t.text).join('\n');
+  const sys = `You are an English speaking coach. Eyal is a native Hebrew speaker, an RF/hardware engineer, level: ${LEVELS[S.level]||LEVELS.mid}. Review his spoken English in this role-play (his lines came from speech recognition – ignore punctuation/recognition glitches). Output ONLY JSON:
+{"score": 1-10 overall, "summary_he": "2 short sentences in Hebrew, encouraging but honest", "strengths_he": ["2-3 items in Hebrew"], "improve_he": ["2-3 concrete items in Hebrew, quoting his actual mistakes with the correct English in parentheses"], "phrases": [{"en":"3-5 useful English expressions for this situation he should learn","he":"Hebrew meaning"}], "next_he": "one practical Hebrew suggestion for next practice"}`;
+  try{
+    const r = await gemini(sys, [{role:'user', parts:[{text:'Scenario: '+scenarioOf(sess).he+(sess.customText?(' – '+sess.customText):'')+'\n\nTranscript:\n'+transcript}]}], 0.4);
+    sess.summary = r;
+    for(const p of (r.phrases||[])) if(p && p.en && !S.phrases.some(x=>x.en.toLowerCase()===String(p.en).toLowerCase())) S.phrases.push({en:String(p.en), he:String(p.he||''), date:new Date().toISOString()});
+    save();
+  }catch(e){ sess.err = e.message || 'שגיאה'; }
+  busy=false; if(cur===sess && view==='summary') render();
+}
+
+/* ========= Mode picker ========= */
+let pendingStart = null;
+function showSheet(id, custom){
+  pendingStart = {id, custom:custom||''};
+  closeSheet();
+  const sc = SCENARIOS.find(x=>x.id===id) || CUSTOM;
+  const d = document.createElement('div'); d.className='sheet-bg'; d.id='sheet'; d.dataset.act='sheet-close';
+  d.innerHTML = `<div class="sheet" onclick="event.stopPropagation()" id="sheetin">
+    <h2>${esc(sc.em+' '+sc.he)}</h2>
+    <button class="opt rec" data-act="mode-live"><span class="em">📹</span><span><b>שיחת וידאו חיה<span class="badge">מומלץ</span></b><small>מדברים חופשי כמו בזום, הדמות עונה מיד, משוב מופיע תוך כדי</small></span></button>
+    <button class="opt" data-act="mode-step"><span class="em">💬</span><span><b>תרגול צעד אחר צעד</b><small>משפט אחד בכל פעם, עם תיקון מפורט ואפשרות לחזור על המשפט</small></span></button>
+    <p class="small muted" style="margin:6px 0 0">🎧 בשיחה חיה עדיף אוזניות – כך הדמות לא שומעת את עצמה.</p>
+  </div>`;
+  $('#app').appendChild(d);
+  $('#sheetin').addEventListener('click', e=>{ const el=e.target.closest('[data-act]'); if(el) onClick({target:el}); });
+}
+function closeSheet(){ const s=$('#sheet'); if(s) s.remove(); }
+
+/* ========= Characters (original avatars) ========= */
+const CHARS = {
+  results:  {name:'Daniel', title:'Engineering Manager', voice:'Charon', skin:'#e0b08c', hair:'#3b2a20', style:'short', shirt:'#2b4c7e', glasses:true},
+  standup:  {name:'Sarah',  title:'Team Lead',          voice:'Kore',   skin:'#f1c6a3', hair:'#8a5a2b', style:'long',  shirt:'#7a3e8c'},
+  supplier: {name:'Mike',   title:'Account Manager',    voice:'Puck',   skin:'#c68e64', hair:'#1e1e1e', style:'short', shirt:'#3d6b4f'},
+  failure:  {name:'Laura',  title:'Quality Engineer',   voice:'Aoede',  skin:'#f3d0b5', hair:'#d9b26b', style:'bob',   shirt:'#9c3b3b', glasses:true},
+  review:   {name:'Tom',    title:'Senior Engineer',    voice:'Fenrir', skin:'#e8bf9c', hair:'#8d8d8d', style:'short', shirt:'#444c5c', glasses:true},
+  present:  {name:'Ravi',   title:'Meeting Host',       voice:'Orus',   skin:'#b47b53', hair:'#2a1b12', style:'short', shirt:'#1f5f8b'},
+  help:     {name:'Anna',   title:'Product Manager',    voice:'Leda',   skin:'#eac0a0', hair:'#4a2e1c', style:'long',  shirt:'#2f7d7a'},
+  smalltalk:{name:'James',  title:'Colleague, UK office',voice:'Puck',  skin:'#f0c9a8', hair:'#c0763a', style:'short', shirt:'#5b5f97'},
+  custom:   {name:'Alex',   title:'',                   voice:'Charon', skin:'#dcae88', hair:'#4b3621', style:'short', shirt:'#35506e'},
+};
+function charOf(id){ return CHARS[id] || CHARS.custom; }
+function avatarSVG(c){
+  const backHair = c.style==='long' ? `<path d="M134 135 C126 58 174 44 200 44 C232 44 276 58 266 140 L272 236 C256 248 238 240 236 222 L236 128 L164 128 L164 222 C160 242 142 248 128 236 Z" fill="${c.hair}"/>`
+    : c.style==='bob' ? `<path d="M134 140 C126 58 174 44 200 44 C232 44 276 58 266 140 L268 192 C256 202 240 198 238 186 L238 128 L162 128 L162 186 C160 198 144 202 132 192 Z" fill="${c.hair}"/>` : '';
+  const fringe = c.style==='short'
+    ? `<path d="M141 126 C136 70 172 50 200 50 C230 50 266 68 259 126 C254 100 236 84 200 84 C168 84 148 98 141 126Z" fill="${c.hair}"/>`
+    : `<path d="M142 124 C140 72 172 52 200 52 C232 52 262 70 258 124 C246 94 226 82 204 84 C190 98 166 108 142 124Z" fill="${c.hair}"/>`;
+  const glasses = c.glasses ? `<g fill="none" stroke="#1d1d1d" stroke-width="3"><rect x="160" y="114" width="34" height="26" rx="9"/><rect x="206" y="114" width="34" height="26" rx="9"/><path d="M194 125 Q200 120 206 125"/></g>` : '';
+  return `<svg class="av" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs><linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a3750"/><stop offset="1" stop-color="#1a2232"/></linearGradient></defs>
+    <rect width="400" height="300" fill="url(#wall)"/>
+    <rect x="18" y="40" width="70" height="90" rx="6" fill="#33435f"/><rect x="26" y="48" width="54" height="74" rx="3" fill="#3f5476"/>
+    <rect x="300" y="70" width="90" height="6" rx="3" fill="#3a4a66"/><rect x="310" y="44" width="10" height="26" fill="#6b84b0"/><rect x="324" y="50" width="8" height="20" fill="#c98e5a"/><rect x="336" y="40" width="12" height="30" fill="#5e9a7c"/>
+    <g class="headbob">
+      <path d="M70 300 C82 226 148 204 200 204 C252 204 318 226 330 300 Z" fill="${c.shirt}"/>
+      <path d="M176 206 L200 236 L224 206 Z" fill="#f4f4f4" opacity=".9"/>
+      <rect x="184" y="172" width="32" height="40" rx="10" fill="${c.skin}"/><rect x="184" y="172" width="32" height="14" fill="#000" opacity=".08"/>
+      ${backHair}
+      <ellipse cx="142" cy="134" rx="9" ry="14" fill="${c.skin}"/><ellipse cx="258" cy="134" rx="9" ry="14" fill="${c.skin}"/>
+      <ellipse cx="200" cy="128" rx="58" ry="68" fill="${c.skin}"/>
+      ${fringe}
+      <path d="M164 108 Q178 100 192 106" stroke="${c.hair}" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M208 106 Q222 100 236 108" stroke="${c.hair}" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <g class="eyes"><ellipse cx="177" cy="128" rx="7" ry="6" fill="#fff"/><ellipse cx="223" cy="128" rx="7" ry="6" fill="#fff"/><circle cx="178" cy="128" r="4" fill="#2b2118"/><circle cx="224" cy="128" r="4" fill="#2b2118"/></g>
+      ${glasses}
+      <path d="M200 134 Q195 150 199 154 Q203 156 207 153" stroke="#000" stroke-opacity=".22" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <ellipse cx="167" cy="152" rx="10" ry="6" fill="#e0607a" opacity=".12"/><ellipse cx="233" cy="152" rx="10" ry="6" fill="#e0607a" opacity=".12"/>
+      <ellipse id="mouth" cx="200" cy="170" rx="15" ry="2.5" fill="#7a2e2e"/>
+      <path id="lip" d="M184 169 Q200 175 216 169" stroke="#8c4a4a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    </g>
+  </svg>`;
+}
+
+/* ========= Live call (Gemini Live API) ========= */
+const LIVE_WS = 'wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent?key=';
+const LIVE_FALLBACKS = ['gemini-3.1-flash-live-preview','gemini-2.5-flash-native-audio-preview-12-2025','gemini-2.5-flash-native-audio-preview-09-2025'];
+const L = {};
+function resetL(){ Object.assign(L, {ws:null, ctx:null, stream:null, node:null, src:null, analyser:null, nextT:0, sources:[], muted:false, cam:true, cc:true, userBuf:'', aiBuf:'', ready:false, ending:false, t0:0, timer:null, raf:null, coachQ:[], coachBusy:false, cands:[], ci:0, lvl:0, lastSpeaker:'', meTalkT:0}); }
+resetL();
+
+async function detectLiveModels(){
+  let names=[];
+  try{
+    const j = await apiFetch(API+'models?pageSize=1000&key='+encodeURIComponent(S.apiKey));
+    names = (j.models||[]).filter(m => (m.supportedGenerationMethods||[]).includes('bidiGenerateContent')).map(m=>m.name.replace(/^models\//,''))
+      .filter(n => !/(tts|image|translat|s2st|embed)/.test(n));
+    const rank = n => verOf(n)*100 + (/native-audio|live/.test(n)?20:0) - (/exp/.test(n)?40:0) - (/preview/.test(n)?5:0);
+    names.sort((a,b)=>rank(b)-rank(a));
+  }catch(e){ if(e.code==='key') throw e; }
+  const out = [];
+  if(S.liveModel) out.push(S.liveModel);
+  for(const n of [...names, ...LIVE_FALLBACKS]) if(!out.includes(n)) out.push(n);
+  return out;
+}
+function livePrompt(sess){
+  const c = charOf(sess.scenarioId);
+  return scenarioPrompt(sess).split('- Output ONLY a JSON object')[0].replace(/- If he says something in Hebrew[^\n]*\n/, '')
+    .replace('You are an English speaking coach running a role-play', 'You are a role-play partner in a live VIDEO CALL used for English speaking practice')
+    + `- This is a live voice conversation. Your name is ${c.name}${c.title?(' ('+c.title+')'):''}. Speak naturally and warmly, at a clear, slightly slow pace. Keep turns short (1-3 sentences) so Eyal speaks most of the time.
+- Do NOT correct his English during the call (a separate coach does that). Just respond like a real person would. If you did not understand him, ask him to repeat or rephrase, like a real colleague would.
+- Speak English only. If he speaks Hebrew, kindly ask him to try in English and offer a simple word to help.
+- When you receive "[START]", greet Eyal by name and open the scene with a question.`;
+}
+function callView(){
+  const c = charOf(cur.scenarioId); const sc = scenarioOf(cur);
+  return `<div class="call" id="callroot">
+    <div class="call-top"><span class="dot-live"></span><span class="ttl">${esc(sc.he)}</span><span class="tm" id="ctimer">00:00</span></div>
+    <div class="stage" id="stage">
+      ${avatarSVG(c)}
+      <div class="nametag">${esc(c.name)}${c.title?(' · '+esc(c.title)):''}</div>
+      <div class="selfview" id="self"><div class="ini">E</div><video id="selfvid" playsinline muted autoplay></video></div>
+      <div class="caption hidden" id="cap"></div>
+      <div class="status" id="cstatus">מתחבר… <span class="dots"><span>•</span><span>•</span><span>•</span></span></div>
+    </div>
+    <div class="coach" id="coach"><h4>💡 משוב חי – יופיע אחרי כל תשובה שלך</h4><div id="coachlist"></div></div>
+    <div class="controls">
+      <button class="cbtn" data-act="cc" aria-label="כתוביות">CC</button>
+      <button class="cbtn" data-act="mute" id="bmute" aria-label="השתק">🎤</button>
+      <button class="cbtn" data-act="cam" id="bcam" aria-label="מצלמה">📷</button>
+      <button class="cbtn end" data-act="endcall" aria-label="סיום שיחה">📞</button>
+    </div>
+  </div>`;
+}
+function setStatus(html){ const s=$('#cstatus'); if(!s) return; if(html){ s.innerHTML=html; s.classList.remove('hidden'); } else s.classList.add('hidden'); }
+function liveErrorHTML(msg){ return `<div><div style="margin-bottom:12px">${esc(msg)}</div><div class="row2" style="justify-content:center"><button class="btn sec" data-act="live-retry">נסה שוב</button><button class="btn ghost" style="color:#fff" data-act="endcall">סיים</button></div></div>`; }
+
+const WORKLET = `class MicProc extends AudioWorkletProcessor{
+  constructor(){super();this.ratio=sampleRate/16000;this.t=0;this.acc=0;this.cnt=0;this.out=new Int16Array(1600);this.n=0;this.peak=0;}
+  process(inputs){const ch=inputs[0]&&inputs[0][0];if(!ch)return true;
+    for(let i=0;i<ch.length;i++){const s=ch[i];const a=s<0?-s:s;if(a>this.peak)this.peak=a;this.acc+=s;this.cnt++;this.t+=1;
+      if(this.t>=this.ratio){this.t-=this.ratio;let v=this.acc/this.cnt;this.acc=0;this.cnt=0;v=v>1?1:(v<-1?-1:v);this.out[this.n++]=v*32767;
+        if(this.n===this.out.length){this.port.postMessage({pcm:this.out.buffer,peak:this.peak},[this.out.buffer]);this.out=new Int16Array(1600);this.n=0;this.peak=0;}}}
+    return true;}}
+registerProcessor('mic-proc',MicProc);`;
+
+function b64FromBuf(buf){ const b=new Uint8Array(buf); let s=''; for(let i=0;i<b.length;i+=0x8000) s+=String.fromCharCode.apply(null, b.subarray(i,i+0x8000)); return btoa(s); }
+function bufFromB64(b64){ const s=atob(b64); const u=new Uint8Array(s.length); for(let i=0;i<s.length;i++) u[i]=s.charCodeAt(i); return u.buffer; }
+
+async function startLive(id, customText){
+  stopSpeak(); resetL();
+  cur = {id:uid(), scenarioId:id, customText:customText||'', title:id==='custom'?(customText||'').slice(0,40):'', date:new Date().toISOString(), turns:[], summary:null, mode:'live'};
+  S.sessions.push(cur); if(S.sessions.length>200) S.sessions=S.sessions.slice(-200); save();
+  view='call'; $('#app').innerHTML=''; render();
+  const myCur = cur;
+  try{
+    const AC = window.AudioContext || window.webkitAudioContext;
+    L.ctx = new AC(); await L.ctx.resume();
+    // media
+    try{ L.stream = await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true, noiseSuppression:true, autoGainControl:true}, video:{facingMode:'user', width:{ideal:480}, height:{ideal:640}}}); }
+    catch(e){ L.stream = await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true, noiseSuppression:true, autoGainControl:true}}); }
+    if(cur!==myCur) return teardownLive();
+    const vt = L.stream.getVideoTracks();
+    if(vt.length){ const v=$('#selfvid'); v.srcObject = L.stream; v.play().catch(()=>{}); } else { L.cam=false; $('#selfvid').classList.add('hidden'); $('#bcam').classList.add('off'); }
+    // output chain
+    L.analyser = L.ctx.createAnalyser(); L.analyser.fftSize = 512; L.analyser.connect(L.ctx.destination);
+    // mic chain
+    const url = URL.createObjectURL(new Blob([WORKLET], {type:'application/javascript'}));
+    await L.ctx.audioWorklet.addModule(url);
+    L.src = L.ctx.createMediaStreamSource(new MediaStream(L.stream.getAudioTracks()));
+    L.node = new AudioWorkletNode(L.ctx, 'mic-proc');
+    const sink = L.ctx.createGain(); sink.gain.value = 0;
+    L.src.connect(L.node); L.node.connect(sink); sink.connect(L.ctx.destination);
+    L.node.port.onmessage = onMicChunk;
+    L.cands = await detectLiveModels(); L.ci = 0;
+    if(cur!==myCur) return teardownLive();
+    connectWS();
+    animLoop();
+  }catch(e){
+    console.error(e);
+    let msg = e && e.message ? e.message : 'שגיאה';
+    if(e && (e.name==='NotAllowedError' || e.name==='SecurityError')) msg = 'אין הרשאה למיקרופון. אשר גישה למיקרופון (ולמצלמה) בהגדרות הדפדפן ונסה שוב.';
+    else if(e && e.name==='NotFoundError') msg = 'לא נמצא מיקרופון במכשיר.';
+    else if(!(e instanceof AIError)) msg = 'לא הצלחתי להפעיל את השיחה: '+msg;
+    setStatus(liveErrorHTML(msg));
+  }
+}
+function connectWS(){
+  const model = L.cands[L.ci];
+  if(!model){ setStatus(liveErrorHTML('לא מצאתי מודל שיחה חיה שעובד עם המפתח שלך. נסה שוב מאוחר יותר, או השתמש בתרגול צעד אחר צעד.')); return; }
+  L.ready = false;
+  const ws = new WebSocket(LIVE_WS + encodeURIComponent(S.apiKey)); L.ws = ws;
+  ws.onopen = () => {
+    const c = charOf(cur.scenarioId);
+    ws.send(JSON.stringify({setup:{
+      model:'models/'+model,
+      generationConfig:{responseModalities:['AUDIO'], speechConfig:{voiceConfig:{prebuiltVoiceConfig:{voiceName:c.voice}}}},
+      systemInstruction:{parts:[{text:livePrompt(cur)}]},
+      inputAudioTranscription:{}, outputAudioTranscription:{},
+      contextWindowCompression:{slidingWindow:{}}
+    }}));
+  };
+  ws.onmessage = async ev => {
+    let data = ev.data;
+    if(typeof data !== 'string'){ try{ data = typeof data.text==='function' ? await data.text() : new TextDecoder().decode(data); }catch(e){ return; } }
+    let m; try{ m = JSON.parse(data); }catch(e){ return; }
+    onServer(m, model);
+  };
+  ws.onclose = ev => {
+    if(L.ws!==ws || L.ending) return;
+    const reason = ev.reason || '';
+    if(!L.ready && /model|not found|not supported|unsupported|invalid argument|setup/i.test(reason) && L.ci < L.cands.length-1){ L.ci++; connectWS(); return; }
+    let msg;
+    if(/quota|exceed|resource_exhausted|rate/i.test(reason)) msg = 'הגעת למכסה החינמית של שיחות חיות לעכשיו. נסה שוב מאוחר יותר, או השתמש בתרגול צעד אחר צעד.';
+    else if(/api key|permission|denied|unauth/i.test(reason)) msg = 'המפתח של Gemini לא מורשה לשיחה חיה. בדוק את המפתח בהגדרות.';
+    else if(L.ready) msg = 'השיחה התנתקה'+(reason?(' ('+reason.slice(0,120)+')'):'')+'. אפשר להתחבר שוב או לסיים ולקבל סיכום.';
+    else if(!L.ready && L.ci < L.cands.length-1){ L.ci++; connectWS(); return; }
+    else msg = 'לא הצלחתי להתחבר לשיחה החיה'+(reason?(': '+reason.slice(0,140)):'')+'.';
+    stopPlayback();
+    setStatus(liveErrorHTML(msg));
+  };
+}
+function onServer(m, model){
+  if(m.setupComplete){
+    L.ready = true; if(S.liveModel!==model){ S.liveModel = model; save(); }
+    setStatus('');
+    L.t0 = Date.now(); clearInterval(L.timer);
+    L.timer = setInterval(()=>{ const s=Math.floor((Date.now()-L.t0)/1000); const t=$('#ctimer'); if(t) t.textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0'); }, 1000);
+    L.ws.send(JSON.stringify({realtimeInput:{text:'[START]'}}));
+    return;
+  }
+  if(m.goAway){ toast('השיחה תסתיים בעוד רגע (מגבלת זמן של Google). אפשר לסיים ולקבל סיכום.', 5000); }
+  const sc = m.serverContent; if(!sc) return;
+  if(sc.inputTranscription && sc.inputTranscription.text){ L.userBuf += sc.inputTranscription.text; L.lastSpeaker='me'; L.meTalkT=Date.now(); updateCaption(); }
+  if(sc.modelTurn && sc.modelTurn.parts){
+    for(const p of sc.modelTurn.parts){
+      if(p.inlineData && p.inlineData.data && /audio/.test(p.inlineData.mimeType||'audio/pcm')){
+        const r = /rate=(\d+)/.exec(p.inlineData.mimeType||''); playPCM(bufFromB64(p.inlineData.data), r?+r[1]:24000);
+      }
+    }
+  }
+  if(sc.outputTranscription && sc.outputTranscription.text){ L.aiBuf += sc.outputTranscription.text; L.lastSpeaker='ai'; updateCaption(); }
+  if(sc.interrupted){ stopPlayback(); finalizeAI(); }
+  if(sc.turnComplete){ finalizeUser(); finalizeAI(); }
+}
+function finalizeUser(){
+  const t = L.userBuf.replace(/\s+/g,' ').trim(); L.userBuf='';
+  if(!t || !cur) return;
+  cur.turns.push({who:'me', text:t}); setDay(); save();
+  L.coachQ.push(cur.turns.length-1); renderCoach(); runCoach(cur);
+}
+function finalizeAI(){
+  const t = L.aiBuf.replace(/\s+/g,' ').trim(); L.aiBuf='';
+  if(!t || !cur) return;
+  cur.turns.push({who:'ai', text:t}); save();
+}
+function updateCaption(){
+  const cap = $('#cap'); if(!cap) return;
+  if(!L.cc){ cap.classList.add('hidden'); return; }
+  let who = L.lastSpeaker, txt = who==='me' ? L.userBuf : L.aiBuf;
+  if(!txt.trim()){ const last = cur && cur.turns[cur.turns.length-1]; if(last){ who=last.who; txt=last.text; } }
+  if(!txt.trim()){ cap.classList.add('hidden'); return; }
+  const words = txt.trim().split(/\s+/); const tail = words.length>28 ? '… '+words.slice(-28).join(' ') : txt.trim();
+  cap.className = 'caption'+(who==='me'?' me':'');
+  cap.innerHTML = `<b>${who==='me'?'You':esc(charOf(cur.scenarioId).name)}:</b> ${esc(tail)}`;
+}
+function onMicChunk(ev){
+  if(!L.ws || L.ws.readyState!==1 || !L.ready || L.muted) return;
+  const {pcm, peak} = ev.data;
+  // while the avatar is talking, only pass clearly-loud speech (barge-in) to reduce echo
+  const aiTalking = L.ctx && L.ctx.currentTime < L.nextT - 0.05;
+  if(aiTalking && peak < 0.25) return;
+  if(peak > 0.06){ const sv=$('#self'); if(sv){ sv.classList.add('talk'); clearTimeout(L.talkT); L.talkT=setTimeout(()=>sv.classList.remove('talk'), 400); } }
+  try{ L.ws.send(JSON.stringify({realtimeInput:{audio:{data:b64FromBuf(pcm), mimeType:'audio/pcm;rate=16000'}}})); }catch(e){}
+}
+function playPCM(buf, rate){
+  if(!L.ctx) return;
+  const i16 = new Int16Array(buf); const f = new Float32Array(i16.length);
+  for(let i=0;i<i16.length;i++) f[i] = i16[i]/32768;
+  const ab = L.ctx.createBuffer(1, f.length, rate); ab.copyToChannel ? ab.copyToChannel(f,0) : ab.getChannelData(0).set(f);
+  const s = L.ctx.createBufferSource(); s.buffer = ab; s.connect(L.analyser);
+  const t = Math.max(L.ctx.currentTime + 0.04, L.nextT);
+  s.start(t); L.nextT = t + ab.duration;
+  L.sources.push(s); s.onended = () => { L.sources = L.sources.filter(x=>x!==s); };
+}
+function stopPlayback(){ for(const s of L.sources){ try{ s.stop(); }catch(e){} } L.sources=[]; if(L.ctx) L.nextT = L.ctx.currentTime; }
+function animLoop(){
+  const data = new Uint8Array(512);
+  const step = () => {
+    if(!L.ctx || !L.analyser) return;
+    L.analyser.getByteTimeDomainData(data);
+    let sum=0; for(let i=0;i<data.length;i++){ const v=(data[i]-128)/128; sum+=v*v; }
+    const rms = Math.sqrt(sum/data.length);
+    const target = Math.min(1, rms*6);
+    L.lvl += (target - L.lvl) * (target > L.lvl ? 0.6 : 0.25);
+    const mouth = $('#mouth'), lip=$('#lip'), st=$('#stage');
+    if(mouth){ mouth.setAttribute('ry', (2.5 + L.lvl*13).toFixed(1)); mouth.setAttribute('rx', (15 - L.lvl*3).toFixed(1)); mouth.setAttribute('cy', (170 + L.lvl*4).toFixed(1)); }
+    if(lip) lip.style.opacity = L.lvl>0.15 ? '0' : '1';
+    if(st) st.classList.toggle('speaking', L.lvl>0.08);
+    L.raf = requestAnimationFrame(step);
+  };
+  L.raf = requestAnimationFrame(step);
+}
+function toggleMute(){
+  L.muted = !L.muted; const b=$('#bmute'); if(b){ b.classList.toggle('off', L.muted); b.textContent = L.muted?'🔇':'🎤'; }
+  if(L.stream) L.stream.getAudioTracks().forEach(t=>t.enabled=!L.muted);
+  if(L.muted && L.ws && L.ws.readyState===1){ try{ L.ws.send(JSON.stringify({realtimeInput:{audioStreamEnd:true}})); }catch(e){} }
+}
+function toggleCam(){
+  const vt = L.stream ? L.stream.getVideoTracks() : [];
+  if(!vt.length){ toast('המצלמה לא זמינה'); return; }
+  L.cam = !L.cam; vt.forEach(t=>t.enabled=L.cam);
+  $('#selfvid').classList.toggle('hidden', !L.cam); $('#bcam').classList.toggle('off', !L.cam);
+}
+/* live coach: corrects each answer in the background with the regular model */
+async function runCoach(sess){
+  sess = sess || cur;
+  if(L.coachBusy || !sess) return;
+  while(L.coachQ.length){
+    L.coachBusy = true;
+    const i = L.coachQ.shift(); const t = sess.turns[i]; if(!t || t.fb) continue;
+    const prev = sess.turns.slice(0,i).reverse().find(x=>x.who==='ai');
+    const sys = `You are an English speaking coach for Eyal, a native Hebrew speaker (RF/hardware engineer), level: ${LEVELS[S.level]||LEVELS.mid}. He is in a live spoken role-play. His sentence came from speech-to-text: ignore punctuation, capitalization and obvious transcription glitches. Output ONLY JSON: {"score":1-10,"corrected":"natural improved version of what he said, same meaning, similar length (repeat it if already perfect)","tips_he":["0-2 very short tips in Hebrew about his specific mistakes"],"good_he":"very short Hebrew praise of what was good"}. Score honestly: 9-10 natural and correct, 7-8 small issues, 5-6 clear errors, <5 hard to understand.`;
+    try{
+      t.fb = await gemini(sys, [{role:'user', parts:[{text:(prev?('The other person said: "'+prev.text+'"\n'):'')+'Eyal said: "'+t.text+'"'}]}], 0.3);
+      save();
+    }catch(e){ t.fbErr = e.code==='quota' ? 'המשוב ממתין – מכסה זמנית, ינסה שוב בהמשך' : 'לא הצלחתי לבדוק את המשפט הזה'; if(e.code==='quota'){ L.coachQ.unshift(i); L.coachBusy=false; renderCoach(); setTimeout(()=>runCoach(sess), 20000); return; } }
+    L.coachBusy = false;
+    if(cur===sess && view==='call') renderCoach();
+  }
+  L.coachBusy = false;
+}
+function renderCoach(){
+  const box = $('#coachlist'); if(!box || !cur) return;
+  const items = cur.turns.map((t,i)=>({t,i})).filter(x=>x.t.who==='me').reverse();
+  box.innerHTML = items.map(({t})=>{
+    if(!t.fb) return `<div class="ccard"><div class="said">${esc(t.text)}</div><div class="small" style="color:#97a3ba">${esc(t.fbErr||'בודק…')}</div></div>`;
+    const f=t.fb; const sc=Math.max(1,Math.min(10,Number(f.score)||0));
+    const same = norm(f.corrected)===norm(t.text);
+    return `<div class="ccard"><div class="row" style="display:flex;gap:8px;align-items:center;margin-bottom:6px"><span class="score ${scoreCls(sc)}">${sc}/10</span><span>${esc(f.good_he||'')}</span></div>
+      <div class="said">${esc(t.text)}</div>
+      ${same?'<div class="better"><span class="lbl">מצוין – אין מה לתקן 👌</span></div>':`<div class="better"><span class="lbl">ככה זה נשמע טבעי יותר:</span><div class="en">${esc(f.corrected||'')}</div></div>`}
+      ${(f.tips_he&&f.tips_he.length)?`<ul class="tips">${f.tips_he.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
+    </div>`;
+  }).join('');
+}
+function teardownLive(){
+  L.ending = true;
+  try{ if(L.ws) L.ws.close(); }catch(e){}
+  clearInterval(L.timer); if(L.raf) cancelAnimationFrame(L.raf);
+  stopPlayback();
+  try{ if(L.node) L.node.port.onmessage=null; }catch(e){}
+  if(L.stream) L.stream.getTracks().forEach(t=>t.stop());
+  try{ if(L.ctx) L.ctx.close(); }catch(e){}
+  L.ctx=null; L.analyser=null; L.ws=null; L.stream=null;
+}
+async function endLive(){
+  if(!cur){ teardownLive(); view='home'; render(); return; }
+  finalizeUser(); finalizeAI();
+  teardownLive();
+  const sess = cur;
+  if(!sess.turns.some(t=>t.who==='me')){ S.sessions = S.sessions.filter(s=>s.id!==sess.id); save(); cur=null; view='home'; $('#app').innerHTML=''; render(); window.scrollTo(0,0); return; }
+  view='summary'; $('#app').innerHTML=''; summarize();
+  // finish any remaining per-sentence feedback in the background (for the history view)
+  L.coachBusy=false; L.coachQ = sess.turns.map((t,i)=>i).filter(i=>sess.turns[i].who==='me' && !sess.turns[i].fb);
+  setTimeout(()=>runCoach(sess), 4000);
+}
+
+/* ========= Backup ========= */
+function exportData(){
+  const data = {app:'speakup', v:1, exported:new Date().toISOString(), sessions:S.sessions, phrases:S.phrases, days:S.days, level:S.level, rate:S.rate};
+  const blob = new Blob([JSON.stringify(data,null,1)], {type:'application/json'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'speakup-backup-'+today()+'.json';
+  document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+}
+function importFile(e){
+  const f = e.target.files && e.target.files[0]; if(!f) return;
+  const rd = new FileReader();
+  rd.onload = () => {
+    try{
+      const d = JSON.parse(rd.result); if(d.app!=='speakup') throw 0;
+      const ids = new Set(S.sessions.map(s=>s.id)); let ns=0, np=0;
+      for(const s of (d.sessions||[])) if(s && s.id && !ids.has(s.id)){ S.sessions.push(s); ns++; }
+      S.sessions.sort((a,b)=>String(a.date).localeCompare(String(b.date)));
+      for(const p of (d.phrases||[])) if(p && p.en && !S.phrases.some(x=>x.en.toLowerCase()===p.en.toLowerCase())){ S.phrases.push(p); np++; }
+      S.days = Array.from(new Set([...(S.days||[]), ...(d.days||[])])).sort();
+      save(); toast(`שוחזרו ${ns} שיחות ו-${np} ביטויים`); render();
+    }catch(err){ toast('הקובץ לא נראה כמו גיבוי של Speak Up'); }
+  };
+  rd.readAsText(f); e.target.value='';
+}
+
+render();
+</script>
+</body>
+</html>
